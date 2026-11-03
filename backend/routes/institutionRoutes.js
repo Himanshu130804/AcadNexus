@@ -1,0 +1,11 @@
+import express from "express";
+import { protect, allowRoles } from "../middleware/authMiddleware.js";
+import { listPublicInstitutions, listManagedInstitutions, listInstitutionsAdmin, createInstitution, updateInstitution, archiveInstitution } from "../controllers/institutionController.js";
+const router = express.Router();
+router.get("/public", listPublicInstitutions);
+router.get("/managed", protect, allowRoles("super_super_admin", "platform_super_admin"), listManagedInstitutions);
+router.get("/", protect, allowRoles("super_super_admin"), listInstitutionsAdmin);
+router.post("/", protect, allowRoles("super_super_admin"), createInstitution);
+router.put("/:id", protect, allowRoles("super_super_admin"), updateInstitution);
+router.delete("/:id", protect, allowRoles("super_super_admin"), archiveInstitution);
+export default router;

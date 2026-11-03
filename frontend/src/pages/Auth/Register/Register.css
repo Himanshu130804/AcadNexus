@@ -1,0 +1,115 @@
+.register-page {
+  min-height: calc(100vh - 80px);
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.12), transparent 28rem),
+    radial-gradient(circle at 90% 5%, rgba(249, 115, 22, 0.12), transparent 28rem),
+    #f8fafc;
+}
+
+.register-card {
+  width: min(100%, 980px);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 28px 90px rgba(15, 23, 42, 0.12);
+}
+
+.register-intro {
+  padding: 42px;
+  color: white;
+  background: radial-gradient(circle at 85% 15%, rgba(190,255,95,.22), transparent 15rem), linear-gradient(145deg, #102b2a, #14564b 62%, #183d38);
+  border: 0;
+}
+
+.register-intro span {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(206,255,126,.16);
+  color: #d7ff9c;
+  font-weight: 950;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+.register-intro h1 {
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  margin-bottom: 16px;
+}
+
+.register-intro p {
+  color: #d6e8e2;
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+.register-form {
+  padding: 42px;
+  display: grid;
+  gap: 14px;
+}
+
+.account-toggle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 6px;
+  border-radius: 18px;
+  background: #f1f5f9;
+}
+
+.account-toggle button,
+.register-submit {
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.account-toggle button {
+  background: transparent;
+  color: #475569;
+}
+
+.account-toggle button.active {
+  background: #ffffff;
+  color: #426a50;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  font: inherit;
+}
+
+.register-submit {
+  margin-top: 8px;
+  background: linear-gradient(135deg, #174c40, #237d61);
+  color: white;
+  box-shadow: 0 16px 34px rgba(37, 99, 235, 0.22);
+}
+
+@media (max-width: 760px) {
+  .register-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.register-form input:focus,
+.register-form select:focus { outline: 3px solid rgba(35,125,97,.16); border-color: #237d61; }
+.register-submit { box-shadow: 0 12px 24px rgba(23,76,64,.2); transition: transform .18s ease, box-shadow .18s ease; }
+.register-submit:hover { transform: translateY(-1px); box-shadow: 0 16px 30px rgba(23,76,64,.26); }
+@media (max-width: 700px) { .register-card { grid-template-columns: 1fr; border-radius: 24px; } .register-intro, .register-form { padding: 28px 24px; } .register-intro h1 { font-size: 40px; } }

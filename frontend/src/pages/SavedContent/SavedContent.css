@@ -1,0 +1,27 @@
+.simple-page {
+  display: grid;
+  gap: 22px;
+}
+
+.breadcrumb {
+  color: #426a50;
+  font-weight: 700;
+}
+
+.simple-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 26px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.simple-card h1 {
+  font-size: 32px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.simple-card p {
+  color: #6b7280;
+}

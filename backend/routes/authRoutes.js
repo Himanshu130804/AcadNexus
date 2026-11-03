@@ -1,0 +1,12 @@
+import express from "express";
+import { login, profile, register, forgotPassword, resetPassword, logout } from "../controllers/authController.js";
+import { protect } from "../middleware/authMiddleware.js";
+import { authRateLimit } from "../middleware/securityMiddleware.js";
+const router = express.Router();
+router.post("/register", authRateLimit, register);
+router.post("/login", authRateLimit, login);
+router.post("/forgot-password", authRateLimit, forgotPassword);
+router.post("/reset-password", authRateLimit, resetPassword);
+router.get("/profile", protect, profile);
+router.post("/logout", protect, logout);
+export default router;

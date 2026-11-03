@@ -1,0 +1,21 @@
+.submit-page { min-height:100vh; background:#f8fafc; padding:24px 0 56px; }
+.submit-hero, .submit-card { width:min(100% - 32px, 1180px); margin:0 auto; }
+.submit-hero { background:#fff; border:1px solid #e2e8f0; border-radius:30px; padding:36px; box-shadow:0 18px 55px rgba(15,23,42,.08); }
+.submit-hero span { display:inline-flex; padding:7px 12px; border-radius:999px; background:#eaf2ea; color:#315541; font-weight:950; }
+.submit-hero h1 { margin:14px 0 8px; color:#0f172a; font-size:clamp(34px,5vw,58px); letter-spacing:-.05em; }
+.submit-hero p, .submit-section-title p { color:#64748b; line-height:1.6; margin:0; }
+.submit-card { margin-top:18px; background:white; border:1px solid #e2e8f0; border-radius:24px; padding:22px; box-shadow:0 18px 55px rgba(15,23,42,.08); display:grid; gap:16px; }
+.submit-section-title { border-top:1px solid #e2e8f0; padding-top:16px; }
+.submit-section-title:first-child { border-top:0; padding-top:0; }
+.submit-section-title h2 { margin:0 0 4px; color:#0f172a; font-size:22px; }
+.submit-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.submit-field { display:grid; gap:7px; color:#334155; font-weight:800; font-size:13px; }
+.submit-field.wide { grid-column:1/-1; }
+.submit-field input, .submit-field select, .submit-field textarea { width:100%; border:1px solid #cbd5e1; border-radius:14px; padding:12px 13px; min-height:46px; font:inherit; background:#fff; }
+.file-upload { display:grid; gap:6px; padding:18px; border:1px dashed #cbd5e1; border-radius:18px; background:#fbfdff; color:#334155; cursor:pointer; }
+.file-upload span, .selected-file { color:#64748b; font-size:13px; }
+.submit-actions { display:flex; justify-content:flex-end; }
+.submit-actions button { border:0; border-radius:999px; padding:13px 24px; background:#426a50; color:white; font-weight:950; cursor:pointer; }
+.submit-actions button:disabled { opacity:.6; }
+@media (max-width: 900px) { .submit-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width: 640px) { .submit-page { padding:14px 0 40px; } .submit-hero,.submit-card { width:min(100% - 20px,1180px); border-radius:20px; padding:18px; } .submit-grid { grid-template-columns:1fr; } .submit-actions button { width:100%; } }

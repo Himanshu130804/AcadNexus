@@ -1,0 +1,144 @@
+.teacher-charges-page {
+  display: grid;
+  gap: 22px;
+}
+
+.charge-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 18px 55px rgba(15, 23, 42, .07);
+}
+
+.hero-charge span {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #eaf2ea;
+  color: #315541;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.charge-card h1,
+.charge-card h2 {
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.charge-card h1 {
+  font-size: clamp(30px, 5vw, 54px);
+  letter-spacing: -.05em;
+}
+
+.charge-card p,
+.muted-text {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.charge-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.charge-field {
+  display: grid;
+  gap: 7px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.charge-form input,
+.charge-form select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 12px 13px;
+  font: inherit;
+  background: #ffffff;
+}
+
+.charge-form button,
+.charge-row button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 16px;
+  background: #426a50;
+  color: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.charge-form button {
+  align-self: end;
+}
+
+.teacher-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.teacher-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 18px;
+  background: #f8fafc;
+}
+
+.teacher-box h3 {
+  margin: 0 0 4px;
+  color: #0f172a;
+}
+
+.charge-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.charge-row span,
+.charge-row small {
+  display: block;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.charge-row button {
+  background: #f97316;
+}
+
+@media (max-width: 1100px) {
+  .charge-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .charge-card {
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .charge-form {
+    grid-template-columns: 1fr;
+  }
+
+  .charge-form button,
+  .charge-row button {
+    width: 100%;
+  }
+
+  .charge-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

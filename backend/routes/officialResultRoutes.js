@@ -1,0 +1,11 @@
+import express from "express";
+import { protect } from "../middleware/authMiddleware.js";
+import { publicVerifyRateLimit } from "../middleware/securityMiddleware.js";
+import { listResults, validateAndCreateBatch, publishResult, publishBatch, verifyResult } from "../controllers/officialResultController.js";
+const router = express.Router();
+router.get("/verify/:code", publicVerifyRateLimit, verifyResult);
+router.get("/", protect, listResults);
+router.post("/batch", protect, validateAndCreateBatch);
+router.post("/publish-batch", protect, publishBatch);
+router.post("/:id/publish", protect, publishResult);
+export default router;

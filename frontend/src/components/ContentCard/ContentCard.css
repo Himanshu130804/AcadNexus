@@ -1,0 +1,155 @@
+.content-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 26px;
+  padding: 22px;
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
+}
+
+.content-top,
+.content-meta,
+.content-actions,
+.file-box,
+.file-actions,
+.comment-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.content-top {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.type-badge,
+.status-badge {
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.type-badge {
+  background: #eaf2ea;
+  color: #315541;
+}
+
+.type-badge.note {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.type-badge.event {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.type-badge.announcement {
+  background: #fef3c7;
+  color: #a16207;
+}
+
+.status-badge.approved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-badge.pending {
+  background: #fef3c7;
+  color: #a16207;
+}
+
+.status-badge.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.content-card h3 {
+  font-size: 24px;
+  color: #0f172a;
+  letter-spacing: -0.035em;
+}
+
+.content-body {
+  color: #475569;
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+.content-meta span {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.file-box {
+  justify-content: space-between;
+  padding: 14px;
+  margin: 16px 0;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.file-box p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.file-actions a,
+.content-actions button,
+.comment-input button,
+.report-box button {
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: #426a50;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.content-actions {
+  margin: 14px 0;
+}
+
+.content-actions button {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.comments {
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.comments p {
+  margin-top: 8px;
+  color: #475569;
+}
+
+.comment-input {
+  margin-top: 10px;
+}
+
+.comment-input input,
+.report-box textarea,
+.report-box select {
+  flex: 1;
+  min-width: 180px;
+  padding: 11px 12px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+}
+
+.report-box {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 18px;
+  background: #fff7ed;
+}

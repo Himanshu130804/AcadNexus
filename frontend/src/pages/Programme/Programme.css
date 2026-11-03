@@ -1,0 +1,25 @@
+.programme-page { padding: 28px; }
+.programme-page .breadcrumb { color: #426a50; font-weight: 900; margin-bottom: 20px; }
+.programme-hero, .programme-card { background: #fff; border: 1px solid #dfe7f3; border-radius: 28px; box-shadow: 0 18px 50px rgba(15,23,42,.06); }
+.programme-hero { padding: 42px; margin-bottom: 18px; }
+.programme-hero span { background: #eaf2ea; color: #315541; border-radius: 999px; padding: 8px 14px; font-weight: 900; display: inline-block; }
+.programme-hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); margin: 18px 0 8px; color: #071126; letter-spacing: -.05em; }
+.programme-hero p { color: #64748b; }
+.programme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 18px; }
+.programme-card { padding: 24px; }
+.programme-card small { display: block; color: #64748b; font-weight: 900; margin-bottom: 8px; }
+.programme-card b { color: #071126; font-size: 1.2rem; }
+.programme-details { margin-bottom: 18px; }
+.programme-card h2 { margin: 0 0 18px; color: #071126; }
+.identity-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.identity-list p { border: 1px solid #e5edf7; border-radius: 16px; padding: 14px; margin: 0; }
+.identity-list span { display: block; color: #64748b; font-weight: 800; margin-bottom: 6px; }
+.programme-note { background: #fff7ed; color: #9a3412; border-radius: 16px; padding: 14px; font-weight: 800; }
+.subject-structure { display: grid; gap: 16px; }
+.subject-basket { border: 1px solid #e5edf7; border-radius: 20px; padding: 16px; }
+.basket-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
+.basket-head h3 { margin: 0; }
+.basket-head span { background: #f1f5f0; color: #315541; border-radius: 999px; padding: 6px 10px; font-weight: 900; }
+.subject-line { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid #edf2f7; color: #475569; }
+.subject-line b { font-size: 1rem; }
+@media (max-width: 840px) { .programme-page { padding: 14px; } .programme-hero { padding: 26px 20px; border-radius: 22px; } .programme-grid, .identity-list { grid-template-columns: 1fr; } .subject-line { grid-template-columns: 1fr; } }

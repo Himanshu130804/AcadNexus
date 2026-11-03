@@ -1,0 +1,49 @@
+.my-charges-page {
+  display: grid;
+  gap: 22px;
+}
+
+.breadcrumb {
+  color: #426a50;
+  font-weight: 700;
+}
+
+.my-charges-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.my-charges-card h1 {
+  margin-bottom: 10px;
+}
+
+.my-charges-card p {
+  color: #6b7280;
+}
+
+.charges-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.my-charge-box,
+.empty-card {
+  padding: 18px;
+  border-radius: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.my-charge-box h3 {
+  color: #111827;
+}
+
+.my-charge-box span {
+  display: block;
+  color: #4b5563;
+  margin-top: 6px;
+}

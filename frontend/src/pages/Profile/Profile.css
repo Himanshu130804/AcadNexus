@@ -1,0 +1,32 @@
+.profile-page { display: grid; gap: 18px; }
+.breadcrumb { color: #426a50; font-size: 13px; font-weight: 800; }
+.profile-loading { background: white; border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px; color: #64748b; font-weight: 750; }
+.profile-panel, .profile-info-card { background: white; border-radius: 16px; border: 1px solid #e5e7eb; box-shadow: 0 10px 28px rgba(15,23,42,.05); }
+.profile-panel { display: flex; align-items: center; gap: 22px; padding: 24px; }
+.profile-avatar, .profile-photo { width: 110px; height: 110px; border-radius: 999px; display: grid; place-items: center; background: #111827; color: white; font-size: 40px; font-weight: 900; object-fit: cover; flex: 0 0 auto; }
+.profile-summary { min-width: 0; }
+.profile-summary span { display: inline-flex; margin-bottom: 8px; color: #315541; background: #f1f5f0; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 900; text-transform: capitalize; }
+.profile-panel h1 { margin: 0 0 6px; font-size: clamp(26px, 4vw, 38px); color: #0f172a; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.profile-panel p { color: #475569; margin: 4px 0; overflow-wrap: anywhere; }
+.profile-panel small { display: block; margin-top: 10px; color: #64748b; font-weight: 700; }
+.profile-panel button { margin-top: 12px; border: 0; border-radius: 10px; background: #426a50; color: white; padding: 10px 14px; font-weight: 850; cursor: pointer; }
+.profile-info-card { padding: 22px; }
+.profile-info-card h2 { font-size: 18px; color: #111827; }
+.info-grid { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.info-grid div { padding: 14px; border: 1px solid #e5e7eb; border-radius: 12px; display: grid; gap: 6px; background: #f8fafc; min-width: 0; }
+.info-grid b { color: #111827; text-transform: capitalize; font-size: 13px; }
+.info-grid span { color: #475569; overflow-wrap: anywhere; line-height: 1.45; }
+.note { margin-top: 14px; color: #64748b; font-weight: 700; line-height: 1.5; }
+@media (max-width: 640px) {
+  .profile-page { gap: 12px; }
+  .profile-panel { padding: 16px; align-items: flex-start; gap: 14px; }
+  .profile-avatar, .profile-photo { width: 64px; height: 64px; font-size: 26px; }
+  .profile-info-card { padding: 16px; }
+  .info-grid { grid-template-columns: 1fr; gap: 8px; }
+  .info-grid.compact div:nth-child(n+4) { display: none; }
+  .profile-panel button { width: 100%; }
+}
+@media (max-width: 420px) {
+  .profile-panel { flex-direction: column; }
+  .profile-summary, .profile-summary a { width: 100%; }
+}
