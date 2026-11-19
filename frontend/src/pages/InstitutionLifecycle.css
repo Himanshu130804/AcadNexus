@@ -1,0 +1,20 @@
+.il-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.il-toolbar input,.il-toolbar select{padding:10px 12px;border:1px solid var(--an-border-strong,#c9d3cc);border-radius:10px;font:inherit;background:#fff;min-width:0}
+.il-toolbar input[type=search]{flex:1 1 220px}
+.il-table-wrap{overflow-x:auto}
+.il-table{width:100%;border-collapse:collapse;font-size:13px}
+.il-table th,.il-table td{text-align:left;padding:12px 10px;border-top:1px solid var(--an-border,#dfe6e1);vertical-align:top}
+.il-table th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--an-ink-600,#5a665f)}
+.il-badge{display:inline-block;padding:3px 9px;border-radius:20px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:#eef2ef;color:#2f4a3b}
+.il-badge.active,.il-badge.used{background:#e3f3e9;color:#245a3d}.il-badge.pending,.il-badge.reassigned{background:#fbf1dc;color:#8a5d0c}
+.il-badge.suspended,.il-badge.inactive,.il-badge.archived,.il-badge.revoked,.il-badge.expired{background:#fbe6e4;color:#853b36}
+.il-btns{display:flex;gap:6px;flex-wrap:wrap}
+.il-btns button,.il-link{border:1px solid var(--an-border-strong,#c9d3cc);background:#f4f7f5;color:#2f4a3b;padding:7px 10px;border-radius:9px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:12px}
+.il-btns button.il-danger{color:#b3453d}
+.il-btns button:disabled{opacity:.5;cursor:not-allowed}
+.il-pager{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:14px;font-size:13px}
+.il-pager button{padding:7px 12px;border-radius:9px;border:1px solid var(--an-border-strong,#c9d3cc);background:#fff;cursor:pointer;font-weight:800}.il-pager button:disabled{opacity:.5}
+.il-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.il-timeline{list-style:none;margin:8px 0;padding:0}.il-timeline li{padding:8px 0;border-top:1px solid var(--an-border,#dfe6e1);font-size:13px}.il-timeline small{display:block;color:var(--an-ink-600,#5a665f)}
+.il-code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:20px;font-weight:800;word-break:break-all;background:#f4f7f5;border:1px dashed var(--an-border-strong,#c9d3cc);border-radius:12px;padding:14px;margin:10px 0}
+@media(max-width:600px){.il-two{grid-template-columns:1fr}}

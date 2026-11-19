@@ -1,0 +1,8 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { calculateSubjectScenario, calculateSemesterGpa } from "../utils/academicSimulator.js";
+const rule = { name: "Configured example", credits: 4, rounding: "nearest_2", components: [{ code: "internal", label: "Internal", weight: 40, maxMarks: 40 }, { code: "external", label: "External", weight: 60, maxMarks: 60 }], gradeBands: [{ minPercentage: 90, grade: "A+", gradePoint: 10 }, { minPercentage: 80, grade: "A", gradePoint: 9 }, { minPercentage: 0, grade: "F", gradePoint: 0 }] };
+test("simulator is deterministic for identical hypothetical inputs", () => { const a = calculateSubjectScenario(rule, { components: { internal: 32, external: 48 } }); const b = calculateSubjectScenario(rule, { components: { internal: 32, external: 48 } }); assert.deepEqual(a, b); assert.equal(a.percentage, 80); assert.equal(a.grade, "A"); });
+test("required marks are calculated only for one remaining component", () => { const result = calculateSubjectScenario(rule, { components: { internal: 30 }, targetPercentage: 75 }); assert.equal(result.requiredMarks, 45); assert.equal(result.requiredMarksFeasible, true); });
+test("out-of-range marks are rejected", () => { assert.throws(() => calculateSubjectScenario(rule, { components: { internal: 41, external: 40 } }), /between 0/); });
+test("GPA uses configured credits and grade points", () => { assert.deepEqual(calculateSemesterGpa([{ gradePoint: 9, credits: 3, rounding: "nearest_2" }, { gradePoint: 8, credits: 1, rounding: "nearest_2" }]), { gpa: 8.75, credits: 4, gradedSubjects: 2, incompleteSubjects: 0, provisional: false }); });

@@ -1,0 +1,16 @@
+import express from "express";
+import { protect } from "../middleware/authMiddleware.js";
+import upload from "../middleware/excelUpload.js";
+import { previewImportWorkbook, createImportBatch, reuploadImportBatch, listImportBatches, getImportBatch, correctImportRow, confirmImportBatch, publishImportBatch, resultTemplate } from "../controllers/resultImportController.js";
+const router = express.Router();
+router.use(protect);
+router.get("/template", resultTemplate);
+router.get("/batches", listImportBatches);
+router.post("/preview", upload.single("file"), previewImportWorkbook);
+router.post("/batches", upload.single("file"), createImportBatch);
+router.get("/batches/:id", getImportBatch);
+router.post("/batches/:id/reupload", upload.single("file"), reuploadImportBatch);
+router.patch("/batches/:id/rows/:rowId", correctImportRow);
+router.post("/batches/:id/confirm", confirmImportBatch);
+router.post("/batches/:id/publish", publishImportBatch);
+export default router;

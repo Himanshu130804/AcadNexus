@@ -1,0 +1,25 @@
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FiAward, FiRefreshCw } from "react-icons/fi";
+import { AuthContext } from "../../context/AuthContext";
+import { getOfficialResults } from "../../api/officialResultApi";
+import QrCode from "../../components/QrCode/QrCode";
+import BacklogPanel from "../../components/BacklogPanel/BacklogPanel";
+import "./Results.css";
+const managerRoles = ["edp", "super_admin", "institute_admin", "vice_chancellor"];
+const formatDate = value => value ? new Date(value).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—";
+export default function Results() {
+  const { user } = useContext(AuthContext); const isManager = managerRoles.includes(user?.role); const isStudent = user?.role === "student";
+  const [qrItem, setQrItem] = useState(null); const [items, setItems] = useState([]); const [loading, setLoading] = useState(true); const [error, setError] = useState(""); const [semester, setSemester] = useState(""); const [examSession, setExamSession] = useState("");
+  const load = useCallback(async () => { setLoading(true); setError(""); try { const response = await getOfficialResults({ semester: semester || undefined, examSession: examSession || undefined, includeDrafts: isManager, limit: 100 }); setItems(response?.data?.items || []); } catch (err) { setError(err.response?.data?.message || "Unable to load results."); } finally { setLoading(false); } }, [semester, examSession, isManager]);
+  useEffect(() => { load(); }, [load]);
+  return <main className="results-page"><section className="results-hero"><div><span className="results-eyebrow"><FiAward /> Academic records</span><h1>{isStudent ? "My Results" : user?.role === "teacher" ? "Student Results" : "Official Results"}</h1><p>{isStudent ? "View your officially published academic results and historical examination attempts." : "Review authorized academic result records. New official results are processed through the staged examination import workflow."}</p></div><button className="results-refresh" onClick={load} disabled={loading}><FiRefreshCw /> {loading ? "Loading…" : "Refresh"}</button></section>
+    <section className="results-toolbar"><label>Semester<input value={semester} onChange={e => setSemester(e.target.value)} placeholder="e.g. 6" /></label><label>Exam session<input value={examSession} onChange={e => setExamSession(e.target.value)} placeholder="e.g. May 2026" /></label>{isManager && <div className="results-summary"><Link className="results-verify-link" to="/result-imports">Open XLSX import & publication workspace ↗</Link></div>}</section>
+    {error && <div className="results-alert" role="alert">{error}</div>}
+    {loading ? <div className="results-empty">Loading results…</div> : !items.length ? <div className="results-empty"><FiAward /><h2>No results found</h2><p>{isStudent ? "Published results will appear here after authorized institutional publication." : "No result records match the selected filters."}</p></div> : <section className="results-table-wrap"><table className="results-table"><thead><tr><th>Student / Roll No.</th><th>Course</th><th>Semester</th><th>Exam session</th><th>Attempt</th><th>Marks</th><th>Grade</th><th>Status</th>{isStudent && <th>Verification</th>}</tr></thead><tbody>{items.map(item => <tr key={item._id}><td><strong>{isStudent ? user?.name : item.rollNumber}</strong><small>{item.rollNumber}</small></td><td><strong>{item.courseCode}</strong><small>{item.courseName}</small></td><td>{item.semester}</td><td>{item.examSession}<small>{formatDate(item.publishedAt)}</small></td><td>{item.attemptType || "regular"}{item.attemptNumber > 0 ? ` #${item.attemptNumber}` : ""}</td><td>{item.marks} / {item.maxMarks}</td><td><span className="grade-pill">{item.grade || "—"}</span></td><td><span className={`status-pill ${item.status}`}>{item.status}</span></td>{isStudent && <td>{item.verificationCode ? <><Link className="results-verify-link" to={`/verify-result/${encodeURIComponent(item.verificationCode)}`}>Verify record</Link> · <button type="button" className="results-qr-button" onClick={() => setQrItem(item)}>QR code</button></> : "—"}</td>}</tr>)}</tbody></table></section>}
+    {isManager && <div className="results-note"><span>Official results are only published through the validated, confirmed batch workflow. Existing legacy drafts cannot be individually published.</span></div>}
+  
+    {isStudent && <BacklogPanel />}
+    {qrItem && <section className="results-qr" aria-label="Result verification QR code"><QrCode value={`${window.location.origin}/verify-result/${encodeURIComponent(qrItem.verificationCode)}`} label={`Verification QR code for ${qrItem.courseCode}`} /><div><h2>Verify {qrItem.courseCode}</h2><p>Scan to open the public verification page for this published record. It confirms the record exists without showing your identity or marks.</p><button type="button" className="results-refresh" onClick={() => setQrItem(null)}>Close</button></div></section>}
+  </main>;
+}

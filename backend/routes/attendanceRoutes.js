@@ -1,0 +1,11 @@
+import express from "express";
+import { getAttendanceGroups, getAttendanceRecords, getMyAttendance, getStudentsForAttendance, markAttendance, updateStudentGroupForAttendance } from "../controllers/attendanceController.js";
+import { allowAcademicAdmins, protect } from "../middleware/authMiddleware.js";
+const router = express.Router();
+router.get("/me", protect, getMyAttendance);
+router.get("/groups", protect, allowAcademicAdmins, getAttendanceGroups);
+router.get("/students", protect, allowAcademicAdmins, getStudentsForAttendance);
+router.put("/students/:id/group", protect, updateStudentGroupForAttendance);
+router.get("/", protect, allowAcademicAdmins, getAttendanceRecords);
+router.post("/", protect, allowAcademicAdmins, markAttendance);
+export default router;

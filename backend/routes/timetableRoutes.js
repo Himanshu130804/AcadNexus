@@ -1,0 +1,11 @@
+import express from "express";
+import { createTimetableEntry, deleteTimetableEntry, getAllTimetable, getMyTimetable, getTodayTimetable, updateTimetableEntry } from "../controllers/timetableController.js";
+import { allowAcademicAdmins, allowTimetableManagers, protect } from "../middleware/authMiddleware.js";
+const router = express.Router();
+router.get("/me", protect, getMyTimetable);
+router.get("/today", protect, getTodayTimetable);
+router.get("/", protect, allowAcademicAdmins, getAllTimetable);
+router.post("/", protect, allowTimetableManagers, createTimetableEntry);
+router.put("/:id", protect, allowTimetableManagers, updateTimetableEntry);
+router.delete("/:id", protect, allowTimetableManagers, deleteTimetableEntry);
+export default router;

@@ -1,0 +1,2 @@
+.qr-code { display: block; max-width: 100%; height: auto; border: 1px solid var(--an-border); border-radius: 8px; background: #fff; }
+.qr-error { margin: 0; color: var(--an-danger); font-size: 13px; }

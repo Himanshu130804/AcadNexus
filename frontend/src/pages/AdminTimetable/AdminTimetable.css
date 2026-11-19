@@ -1,0 +1,27 @@
+.simple-page {
+  display: grid;
+  gap: 22px;
+}
+
+.breadcrumb {
+  color: var(--an-primary-800);
+  font-weight: 700;
+}
+
+.simple-card {
+  background: white;
+  border: 1px solid var(--an-border);
+  border-radius: 8px;
+  padding: 26px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.simple-card h1 {
+  font-size: 32px;
+  color: var(--an-ink);
+  margin-bottom: 10px;
+}
+
+.simple-card p {
+  color: var(--an-muted);
+}

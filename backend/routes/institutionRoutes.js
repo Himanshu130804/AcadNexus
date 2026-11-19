@@ -1,0 +1,18 @@
+import express from "express";
+import { protect, allowRoles } from "../middleware/authMiddleware.js";
+import { listPublicInstitutions, listManagedInstitutions, listInstitutionsAdmin, createInstitution, updateInstitution, archiveInstitution, listArchivedInstitutions, getInstitutionDetails, getInstitutionHistory, restoreInstitution, getMyInstitution } from "../controllers/institutionController.js";
+const router = express.Router();
+const platformRoles = ["super_super_admin", "platform_super_admin"];
+router.get("/public", listPublicInstitutions);
+router.get("/managed", protect, allowRoles(...platformRoles), listManagedInstitutions);
+router.get("/mine", protect, getMyInstitution);
+router.get("/archived", protect, allowRoles(...platformRoles), listArchivedInstitutions);
+router.get("/", protect, allowRoles(...platformRoles), listInstitutionsAdmin);
+router.post("/", protect, allowRoles(...platformRoles), createInstitution);
+router.get("/:id/details", protect, allowRoles(...platformRoles), getInstitutionDetails);
+router.get("/:id/history", protect, allowRoles(...platformRoles), getInstitutionHistory);
+router.post("/:id/archive", protect, allowRoles(...platformRoles), archiveInstitution);
+router.post("/:id/restore", protect, allowRoles(...platformRoles), restoreInstitution);
+router.put("/:id", protect, allowRoles(...platformRoles), updateInstitution);
+router.delete("/:id", protect, allowRoles(...platformRoles), archiveInstitution);
+export default router;

@@ -1,0 +1,155 @@
+.content-card {
+  background: white;
+  border: 1px solid var(--an-border);
+  border-radius: 26px;
+  padding: 22px;
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
+}
+
+.content-top,
+.content-meta,
+.content-actions,
+.file-box,
+.file-actions,
+.comment-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.content-top {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.type-badge,
+.status-badge {
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.type-badge {
+  background: var(--an-primary-050);
+  color: var(--an-primary-800);
+}
+
+.type-badge.note {
+  background: var(--an-success-bg);
+  color: var(--an-success);
+}
+
+.type-badge.event {
+  background: var(--an-warning-bg);
+  color: #c2410c;
+}
+
+.type-badge.announcement {
+  background: var(--an-warning-bg);
+  color: #a16207;
+}
+
+.status-badge.approved {
+  background: var(--an-success-bg);
+  color: var(--an-success);
+}
+
+.status-badge.pending {
+  background: var(--an-warning-bg);
+  color: #a16207;
+}
+
+.status-badge.rejected {
+  background: var(--an-danger-bg);
+  color: var(--an-danger);
+}
+
+.content-card h3 {
+  font-size: 24px;
+  color: var(--an-ink);
+  letter-spacing: -0.035em;
+}
+
+.content-body {
+  color: var(--an-ink-soft);
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+.content-meta span {
+  color: var(--an-muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.file-box {
+  justify-content: space-between;
+  padding: 14px;
+  margin: 16px 0;
+  border-radius: 18px;
+  background: var(--an-surface-soft);
+  border: 1px solid var(--an-border);
+}
+
+.file-box p {
+  color: var(--an-muted);
+  font-size: 13px;
+}
+
+.file-actions a,
+.content-actions button,
+.comment-input button,
+.report-box button {
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: var(--an-primary-800);
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.content-actions {
+  margin: 14px 0;
+}
+
+.content-actions button {
+  background: var(--an-bg);
+  color: var(--an-ink);
+}
+
+.comments {
+  padding-top: 12px;
+  border-top: 1px solid var(--an-border);
+}
+
+.comments p {
+  margin-top: 8px;
+  color: var(--an-ink-soft);
+}
+
+.comment-input {
+  margin-top: 10px;
+}
+
+.comment-input input,
+.report-box textarea,
+.report-box select {
+  flex: 1;
+  min-width: 180px;
+  padding: 11px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--an-border-strong);
+}
+
+.report-box {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 18px;
+  background: var(--an-warning-bg);
+}

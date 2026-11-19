@@ -1,0 +1,21 @@
+.backlog-panel { background: var(--an-surface); border: 1px solid var(--an-border); border-radius: 14px; padding: 16px 18px; display: grid; gap: 12px; }
+.backlog-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.backlog-head h2 { margin: 0; font-size: 16px; color: var(--an-ink); }
+.backlog-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.backlog-chips li { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--an-primary-050); color: var(--an-ink-soft); }
+.backlog-chips li.bad { background: var(--an-danger-bg); color: var(--an-danger); }
+.backlog-chips li.ok { background: var(--an-success-bg); color: var(--an-success); }
+.backlog-chips li.warn { background: var(--an-warning-bg); color: var(--an-warning); }
+.backlog-table-wrap { overflow-x: auto; }
+.backlog-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.backlog-table th, .backlog-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--an-border); vertical-align: top; }
+.backlog-table small { display: block; color: var(--an-muted); font-size: 11px; }
+.backlog-status { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 800; }
+.backlog-status.backlog { background: var(--an-danger-bg); color: var(--an-danger); }
+.backlog-status.cleared { background: var(--an-success-bg); color: var(--an-success); }
+.backlog-status.unclassified { background: var(--an-warning-bg); color: var(--an-warning); }
+.backlog-attempts { margin: 0; padding-left: 16px; display: grid; gap: 2px; }
+.backlog-attempts li.fail { color: var(--an-danger); }
+.backlog-attempts li.pass { color: var(--an-success); }
+.backlog-muted { margin: 0; color: var(--an-muted); font-size: 12px; }
+.backlog-error { margin: 0; color: var(--an-danger); font-size: 13px; }

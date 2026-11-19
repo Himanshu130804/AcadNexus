@@ -1,0 +1,11 @@
+import api from "./api";
+const formFile = (file, metadata = {}) => { const form = new FormData(); form.append("file", file); Object.entries(metadata).forEach(([key, value]) => { if (value !== undefined && value !== null && value !== "") form.append(key, value); }); return form; };
+export const previewResultWorkbook = (file, metadata) => api.post("/result-imports/preview", formFile(file, metadata), { headers: { "Content-Type": "multipart/form-data" }, timeout: 60000 }).then(r => r.data);
+export const createResultImportBatch = (file, metadata) => api.post("/result-imports/batches", formFile(file, metadata), { headers: { "Content-Type": "multipart/form-data" }, timeout: 60000 }).then(r => r.data);
+export const reuploadResultImportBatch = (id, file, metadata) => api.post(`/result-imports/batches/${id}/reupload`, formFile(file, metadata), { headers: { "Content-Type": "multipart/form-data" }, timeout: 60000 }).then(r => r.data);
+export const listResultImportBatches = () => api.get("/result-imports/batches").then(r => r.data);
+export const getResultImportBatch = id => api.get(`/result-imports/batches/${id}`).then(r => r.data);
+export const correctResultImportRow = (id, rowId, payload) => api.patch(`/result-imports/batches/${id}/rows/${rowId}`, payload).then(r => r.data);
+export const confirmResultImportBatch = id => api.post(`/result-imports/batches/${id}/confirm`).then(r => r.data);
+export const publishResultImportBatch = id => api.post(`/result-imports/batches/${id}/publish`).then(r => r.data);
+export const downloadResultTemplate = (format = "xlsx") => api.get("/result-imports/template", { params: { format }, responseType: "blob" }).then(r => r.data);

@@ -1,0 +1,91 @@
+.post-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 22px;
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
+  transition: 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+
+.post-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.type-pill,
+.status-pill {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.type-pill {
+  background: var(--an-surface-soft);
+  color: var(--an-primary-800);
+}
+
+.status-pill {
+  background: var(--an-bg);
+  color: var(--an-ink-soft);
+}
+
+.status-pill.approved {
+  background: var(--an-success-bg);
+  color: var(--an-success);
+}
+
+.status-pill.pending {
+  background: var(--an-warning-bg);
+  color: #b45309;
+}
+
+.status-pill.rejected {
+  background: var(--an-danger-bg);
+  color: var(--an-danger);
+}
+
+.post-card h3 {
+  color: var(--dark);
+  font-size: 22px;
+  letter-spacing: -0.035em;
+  margin-bottom: 8px;
+}
+
+.post-card p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 650;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.post-meta span {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: var(--an-surface-soft);
+  color: var(--an-ink-soft);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}

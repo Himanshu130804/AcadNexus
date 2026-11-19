@@ -1,0 +1,6 @@
+import mongoose from "mongoose";
+import { tenantScopePlugin } from "../utils/tenantContext.js";
+const schema = new mongoose.Schema({ institutionId: { type: mongoose.Schema.Types.ObjectId, ref: "Institution", required: true, index: true }, title: { type: String, required: true, trim: true, maxlength: 180 }, description: { type: String, required: true, maxlength: 5000 }, type: { type: String, enum: ["internship", "project", "workshop", "hackathon", "competition", "certification", "training", "research", "placement", "event", "skill_development"], required: true }, organizer: { type: String, default: "" }, requiredSkills: [String], interestTags: [String], eligibleDepartments: [String], eligibleProgrammes: [String], eligibilityText: { type: String, default: "" }, deadline: Date, startDate: Date, applicationUrl: { type: String, validate: v => !v || /^https:\/\//i.test(v) }, status: { type: String, enum: ["draft", "published", "closed"], default: "draft", index: true }, createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" } }, { timestamps: true });
+schema.index({ institutionId: 1, status: 1, deadline: 1 });
+schema.plugin(tenantScopePlugin, { field: "institutionId" });
+export default mongoose.model("Opportunity", schema);

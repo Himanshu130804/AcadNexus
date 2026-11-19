@@ -1,0 +1,23 @@
+.verify-page { min-height: 100vh; display: grid; place-items: center; padding: 28px 16px; background: radial-gradient(circle at 80% 10%, rgba(67,148,146,.13), transparent 24rem), var(--an-bg); }
+.verify-card { width: min(100%, 650px); padding: clamp(22px, 4vw, 38px); border: 1px solid var(--an-border); border-radius: var(--an-radius-xl); background: var(--an-surface); box-shadow: var(--an-shadow-lg); }
+.verify-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; color: var(--an-primary-950); font-size: 17px; font-weight: 850; }
+.verify-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; background: var(--an-accent-500); color: var(--an-primary-950); font-size: 12px; }
+.verify-kicker { display: inline-flex; align-items: center; gap: 8px; color: var(--an-primary-700); font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+.verify-card h1 { margin: 10px 0; font-size: clamp(28px, 5vw, 40px); }
+.verify-card > p { max-width: 540px; margin: 0 0 22px; }
+.verify-form { display: grid; gap: 9px; }
+.verify-form label { font-size: 12px; font-weight: 800; }
+.verify-form input { min-height: 48px; }
+.verify-form button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; }
+.verify-error { margin-top: 15px; padding: 12px 14px; border: 1px solid #edc6c9; border-radius: 10px; background: var(--an-danger-bg); color: #88363c; font-size: 13px; }
+.verify-success { margin-top: 20px; padding: 17px; border: 1px solid #cce4d5; border-radius: 14px; background: var(--an-success-bg); }
+.verify-success-title { display: flex; align-items: center; gap: 8px; color: var(--an-success); }
+.verify-success dl { display: grid; gap: 0; margin: 12px 0; }
+.verify-success dl div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid rgba(35,114,79,.14); }
+.verify-success dt { color: var(--an-muted); font-size: 12px; }
+.verify-success dd { margin: 0; color: var(--an-ink); font-size: 12px; font-weight: 800; text-align: right; }
+.verify-success p { margin: 12px 0 0; font-size: 11px; }
+.verify-footer { display: flex; justify-content: space-between; gap: 14px; margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--an-border); font-size: 11px; }
+.verify-footer a { color: var(--an-primary-700); font-weight: 850; }
+.verify-footer span { color: var(--an-muted); text-align: right; }
+@media (max-width: 520px) { .verify-success dl div { flex-direction: column; gap: 3px; } .verify-success dd { text-align: left; } .verify-footer { flex-direction: column; } .verify-footer span { text-align: left; } }
