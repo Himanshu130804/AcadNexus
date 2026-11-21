@@ -42,9 +42,12 @@ export const seedPlatformOwner = async () => {
     // In local development, keep the configured credentials usable after a
     // fresh clone or a password change in .env. Never do this automatically
     // in production.
-    if (process.env.NODE_ENV !== "production") {
-      const syncPassword = String(process.env.PLATFORM_OWNER_SYNC_PASSWORD || "false").toLowerCase() === "true";
-      if (syncPassword) {
+    const syncPassword =
+  String(process.env.PLATFORM_OWNER_SYNC_PASSWORD || "false")
+    .trim()
+    .toLowerCase() === "true";
+
+if (syncPassword) {
         existing.name = name || existing.name;
         existing.password = password;
         existing.institution = undefined;
